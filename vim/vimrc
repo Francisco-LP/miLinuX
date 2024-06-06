@@ -1,0 +1,128 @@
+call plug#begin('~/.vim/plugged')
+
+" Explorador de archivos
+Plug 'scrooloose/nerdtree'
+
+" AUTOCOMPLETAR
+Plug 'sirver/ultisnips'
+
+"Coc es un motor de autocompletado de código. Tiene soporte para multitud de lenguajes de programación
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'npm ci' }
+
+"para usar Git en vim
+Plug 'tpope/vim-fugitive'
+
+
+"Tema
+Plug 'NLKNguyen/papercolor-theme'
+
+"Plug 'christophermca/meta5'
+"Plug 'ChausseBenjamin/friffle-vim'
+
+"syntaxys 
+Plug 'sheerun/vim-polyglot'
+
+"al crear un parentesis crea el otro automaticamente y pone el cursor en medio
+Plug 'jiangmiao/auto-pairs'
+
+" Barra inferior
+Plug 'vim-airline/vim-airline'
+
+" TIPIFICACIÓN
+"al crear un parentesis crea el otro automaticamente y pone el cursor en medio
+Plug 'jiangmiao/auto-pairs'
+" al crear una etiquita ej en html la cierra automaticamente
+Plug 'alvan/vim-closetag'
+
+
+call plug#end()
+
+
+set background=dark
+
+"configuracion de NERDTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+
+
+"configuracion del tema paperColor
+set t_Co=256
+colorscheme PaperColor
+
+" activa la sintaxis
+syntax on
+
+" muestra numeros de lineas en el margen izquierdo
+set number
+
+
+"desactiva el modo de compatibilidad con el editor vi origina
+set nocompatible
+
+" activa el raton
+set mouse=a
+
+" activa
+set encoding=utf-8
+
+" numero de espacios en las tabulaciones
+set tabstop=2
+
+" numero de espacios que se usa en la identacion
+set shiftwidth=2
+
+" identa automaticamente las nuevas lineas de forma inteligente
+set smartindent
+
+" realiza una búsqueda incremental, mostrando coincidencias a medida que se
+" escribe, con /palabraABuscar n y N para buscar 
+set incsearch
+
+"para quitar el resalte de la busqueda, \n
+nnoremap <silent> <Leader>n :nohlsearch<CR>
+
+
+" muestra el paréntesis correspondiente cuando se inserta uno y resalta el si no ce cierra
+set showmatch
+
+" puede deshacer, para deshacer cambios incluso despúes de cerrar y abrir el archivo
+set undofile
+
+"resalta la linea en la que esta el cursor
+set cursorline
+
+"asegura que siempre haya al menos 10 líneas visibles por encima y por debajo del cursor
+set scrolloff=10
+
+"muestra los comandos parciales que estás escribiendo en la última línea de la pantalla
+set showcmd
+
+"Este comando muestra el modo en el que estás (Normal, Insertar, etc.) en la última línea de la pantalla.
+set showmode
+
+"Este comando establece la cantidad de comandos a guardar en el historial. El valor predeterminado es 20, pero con este comando se aumenta a 1000
+set history=1000
+
+"habilita el menú de autocompletado. Cuando estás en modo de comando (después de presionar :), el menú de autocompletado muestra una lista de posibles coincidencias a medida que escribes, permitiéndote seleccionar entre ellas fácilmente.
+set wildmenu
+
+
+"Este comando le dice a Vim que ignore ciertos archivos cuando usa el autocompletado de archivos. Los archivos con las extensiones especificadas (como .docx, .jpg, .png, etc.) no aparecerán en el menú de autocompletado. 
+"set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+"Este comando configura cómo se comporta el menú de autocompletado (wildmenu). La opción list:longest hace que Vim primero complete hasta el mayor prefijo común de todas las coincidencias y luego, si presionas Tab nuevamente, te muestra una lista de todas las opciones posibles. Esto es similar al comportamiento de autocompletado en Bash
+set wildmode=list:longest
+
+"activa la detección automática del tipo de archivo. Cuando abres un archivo
+filetype on
+
+"Este comando activa los plugins específicos del tipo de archivo detectado
+filetype plugin on
+
+"Este comando carga archivos de indentación específicos para el tipo de archivo detectado
+filetype indent on
+
+

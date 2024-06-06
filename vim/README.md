@@ -24,8 +24,7 @@
         :CocInstall coc-html      " Para HTML
         :CocInstall coc-css       " Para CSS
 
-    * Guardar y cargar cambios
+    * Cargar cambios
         
-        :w 
         :source %
 
